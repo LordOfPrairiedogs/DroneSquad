@@ -38,7 +38,6 @@ public class ATInvoker {
     /**
      * executes the concrete <ATCommand> currently stored in the local reference.
      *
-     * @param sequence
      * @throws Exception
      */
     public void execute() {

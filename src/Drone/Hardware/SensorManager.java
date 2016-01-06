@@ -7,20 +7,18 @@ import java.util.List;
 
 /**
  * This is the class to use if you wish to get raw data from the sensors
- *
  * @author orpheus
+ *
  */
 public class SensorManager extends NavData {
     /**
      * A reference to a NavData object,
-     *
      * @TODO strip down NavData.java to bare essentials
      **/
     private NavData navData;
 
     /**
      * initialise the sensor manager
-     *
      * @throws Exception
      */
     public SensorManager() {
@@ -31,7 +29,6 @@ public class SensorManager extends NavData {
 
     /**
      * retrieve the X velocity
-     *
      * @return X velocity
      */
     public static float getXvelocity() {
@@ -40,17 +37,14 @@ public class SensorManager extends NavData {
 
     /**
      * retrieve the Y velocity
-     *
      * @return Y velocity
      */
     public static float getYvelocity() {
         //getLongitude() actually returns NavData.Vy
         return NavData.getLongitude();
     }
-
     /**
      * retrieve the Z velocity
-     *
      * @return Z velocity
      */
     public static float getZvelocity() {
@@ -59,7 +53,6 @@ public class SensorManager extends NavData {
 
     /**
      * Retrieve the Yaw value
-     *
      * @return Yaw value
      */
     public static float getYaw() {
@@ -68,7 +61,6 @@ public class SensorManager extends NavData {
 
     /**
      * Retrieve the pitch value
-     *
      * @return pitch value
      */
     public static float getPitch() {
@@ -77,7 +69,6 @@ public class SensorManager extends NavData {
 
     /**
      * retrieve the roll value
-     *
      * @return roll value
      */
     public static float getRoll() {
@@ -86,7 +77,6 @@ public class SensorManager extends NavData {
 
     /**
      * Retrieve the Altitude
-     *
      * @return Altitude
      */
     public static float getAltitude() {
@@ -95,7 +85,6 @@ public class SensorManager extends NavData {
 
     /**
      * Retrieve a list of the vision tage
-     *
      * @return List<VisionTag>
      */
     public static List<VisionTag> getVisionTags() {

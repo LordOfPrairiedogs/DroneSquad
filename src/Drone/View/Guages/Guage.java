@@ -30,7 +30,7 @@ public class Guage extends JPanel {
     /**
      * @param altitude
      */
-    public void update(Float value) {
-        data.setText(value.toString() + " Meters");
+    public void update(Float altitude) {
+        data.setText(altitude.toString() + " Meters");
     }
 }
