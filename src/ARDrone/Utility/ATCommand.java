@@ -1,13 +1,48 @@
 package ARDrone.Utility;
 
+import java.net.InetAddress;
+
 /**
  * ARDrone.Utility
  */
 public class ATCommand
 {
 //    public int sequence; //need to get from crontroller so next in sequence
-    public String [] args;
-    public String cmd;
+    private String [] args;
+    private String cmd;
+    //speed?
+
+    public InetAddress getAddy ()
+    {
+        return addy;
+    }
+
+    public void setAddy (InetAddress addy)
+    {
+        this.addy = addy;
+    }
+
+    public String[] getArgs ()
+    {
+        return args;
+    }
+
+    public void setArgs (String[] args)
+    {
+        this.args = args;
+    }
+
+    public String getCmd ()
+    {
+        return cmd;
+    }
+
+    public void setCmd (String cmd)
+    {
+        this.cmd = cmd;
+    }
+
+    private InetAddress addy;
 
     public ATCommand (){
     }
@@ -25,8 +60,7 @@ public class ATCommand
         return null;
     }
 
-    public String getNext (){
-        // connect to controller or something to get the next available sequence - will be on drone
-        return null;
+    private boolean isValidMessage () {
+        return true;
     }
 }

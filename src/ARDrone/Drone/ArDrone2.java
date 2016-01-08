@@ -7,6 +7,8 @@ import java.net.UnknownHostException;
 
 /**
  * ARDrone.Utility
+ * This class represents the drone object, specifically an AR.Drone 2.0 quadcopter. The new drones may have a different
+ * spec so they are different implementations.
  */
 public class ArDrone2 implements Drone
 {
@@ -25,9 +27,11 @@ public class ArDrone2 implements Drone
 
     @Override
     public void sendCommand(ATCommand cmd) {
-        //connect to ip
-        //put together string
-        //send string to ip
-        //increment sequenceNumber
+        cmd.setAddy (inet_addr);
+
+
+        //send string to commandQue
+        //command queue handles all requests so autopilot features - fleet commands, etc - are handled in one place.
     }
+
 }
