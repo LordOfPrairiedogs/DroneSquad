@@ -9,6 +9,21 @@ import java.util.List;
  */
 public class CommandQueue
 {
+    private static CommandQueue cq=null;
+    private CommandQueue ()
+    {
+        //Private constructor to make sure there is only one queue
+    }
+
+    public static CommandQueue instantiate() {
+        if (cq == null)
+        {
+            cq = new CommandQueue ();
+        }
+
+        return cq;
+    }
+
     public boolean addToQueue (ATCommand cmd) {
         //adds a command to the queue
         return true;
