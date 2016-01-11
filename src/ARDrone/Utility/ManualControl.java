@@ -5,6 +5,7 @@ import net.java.games.input.Component.Identifier;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,7 +51,7 @@ public class ManualControl
         }
     } // end of pollComponent()
 
-    private static void searchForControllers() {
+    public static void searchForControllers() {
         Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
 
         for(int i = 0; i < controllers.length; i++){
@@ -64,12 +65,15 @@ public class ManualControl
                     )
             {
                 // Add new controller to the list of all controllers.
+                if (foundControllers == null) {
+                    foundControllers = new ArrayList<>();
+                }
                 foundControllers.add(controller);
             }
         }
     }
 
-    private static void getJoyData(int selectedControllerIndex){
+    public static void getJoyData(int selectedControllerIndex) {
         {
             searchForControllers();
 
