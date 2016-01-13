@@ -1,6 +1,10 @@
 package ARDrone.Utility;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Delayed;
+import java.util.concurrent.TimeUnit;
 
 /**
  * ARDrone.Utility
@@ -9,6 +13,9 @@ import java.util.List;
  */
 public class CommandQueue
 {
+    //Keeps track of drones and commands.
+    private Map<Integer, ATCommand> timeCmdMap = new HashMap<>();
+
     private static CommandQueue cq=null;
     private CommandQueue ()
     {
@@ -24,12 +31,53 @@ public class CommandQueue
         return cq;
     }
 
+    //immediate processing
     public boolean addToQueue (ATCommand cmd) {
-        //adds a command to the queue
+        return addToQueue (0, cmd);
+    }
+
+
+    public boolean addToQueue (int timeInMilliSec, ATCommand cmdList){
         return true;
     }
 
-    public boolean addToAutopilotQueue (List<ATCommand> cmdList){
-        return true;
+    //TODO: Create a class to handle new _cmd_ issued to _address_ at _time_.
+    //no difference between autopilot and regular command except time=SOONEST/NOW
+    //
+    public class DelayObject implements Delayed
+{
+        private String data;
+        private long startTime;
+
+        public DelayObject(String data, long delay) {
+            this.data = data;
+            this.startTime = System.currentTimeMillis() + delay;
+        }
+
+        @Override
+        public long getDelay(TimeUnit unit) {
+            long diff = startTime - System.currentTimeMillis();
+            return unit.convert(diff, TimeUnit.MILLISECONDS);
+        }
+
+        @Override
+        public int compareTo(Delayed o) {
+            if (this.startTime < ((DelayObject) o).startTime) {
+                return -1;
+            }
+            if (this.startTime > ((DelayObject) o).startTime) {
+                return 1;
+            }
+            return 0;
+        }
+
+        @Override
+        public String toString() {
+            return "{" +
+            "data='" + data + '\'' +
+            ", startTime=" + startTime +
+            '}';
+        }
     }
+
 }
