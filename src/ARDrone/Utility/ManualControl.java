@@ -7,6 +7,8 @@ import net.java.games.input.ControllerEnvironment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.BlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -161,4 +163,60 @@ public class ManualControl
     {
         return (int)(((2 - (1 - axisValue)) * 100) / 2);
     }
+
+/**********************************************************************************************
+This handles the thread that will read controller data and periodically send something to the queue.
+
+ // Starting DelayQueue Producer to push some delayed objects to the queue
+ new DelayQueueProducer(queue).start();
+ **********************************************************************************************/
+
+public class DelayQueueProducer
+{//TODO: The threads for this need to be instantiated elsewhere. This object is the queue only.
+    //The thread will be associated with manual control.
+
+    private final Random random = new Random ();
+    // Creates an instance of blocking queue using the DelayQueue.
+    private BlockingQueue queue;
+    private Thread producerThread = new Thread (new Runnable ()
+    {
+        @Override
+        public void run ()
+        {
+            while (true)
+            {
+                try
+                {
+                    // Put some Delayed object into the DelayQueue.
+                    int delay = random.nextInt (10000);
+                    ATCommand atCmd = new ATCommand ("");
+                    CommandQueue object = new CommandQueue (atCmd, delay);
+
+                    System.out.printf ("Put object = %s%n", object);
+                    queue.put (object);
+                    Thread.sleep (500);
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace ();
+                }
+            }
+        }
+    }, "Producer Thread");
+
+    public DelayQueueProducer (BlockingQueue queue)
+    {
+        super ();
+        this.queue = queue;
+    }
+
+    public void start ()
+    {
+        this.producerThread.start ();
+    }
+}
+
+
+
+
 }
