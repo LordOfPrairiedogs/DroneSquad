@@ -1,10 +1,10 @@
-package ARDrone.Utility;
+package DroneSquad.Utility;
 
 import java.net.InetAddress;
 import java.util.List;
 
 /**
- * ARDrone.Utility
+ * DroneSquad.Utility
  */
 public class AutopilotControl
 {

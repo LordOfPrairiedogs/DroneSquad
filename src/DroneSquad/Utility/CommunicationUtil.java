@@ -1,7 +1,7 @@
-package ARDrone.Utility;
+package DroneSquad.Utility;
 
 /**
- * ARDrone.Utility
+ * DroneSquad.Utility
  * Turns raw data into communication messages, uses communication data to get drone data.
  */
 public class CommunicationUtil
@@ -17,4 +17,5 @@ public class CommunicationUtil
         ATCommand atCmd = new ATCommand(DroneConstants.AT_REF_CMD);
         return atCmd;
     }
+
 }

@@ -1,12 +1,12 @@
-package ARDrone.Drone;
+package DroneSquad.Drone;
 
-import ARDrone.Utility.ATCommand;
+import DroneSquad.Utility.ATCommand;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- * ARDrone.Utility
+ * DroneSquad.Utility
  * This class represents the drone object, specifically an AR.Drone 2.0 quadcopter. The new drones may have a different
  * spec so they are different implementations.
  */

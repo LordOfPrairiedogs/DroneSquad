@@ -1,4 +1,4 @@
-package ARDrone.Utility;
+package DroneSquad.Utility;
 
 import net.java.games.input.Component;
 import net.java.games.input.Component.Identifier;
@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * ARDrone.Utility
+ * DroneSquad.Utility
  *
  * https://fivedots.coe.psu.ac.th/~ad/jg2/ch11/GamePadIntro.pdf
  */

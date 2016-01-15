@@ -1,12 +1,11 @@
-package ARDrone.Drone;
+package DroneSquad.Drone;
 
-import ARDrone.Utility.ATCommand;
+import DroneSquad.Utility.ATCommand;
 
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- * ARDrone.Utility
+ * DroneSquad.Utility
  */
 public interface Drone
 {

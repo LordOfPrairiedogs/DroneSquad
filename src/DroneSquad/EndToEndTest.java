@@ -1,14 +1,14 @@
-package ARDrone;
+package DroneSquad;
 
-import ARDrone.Drone.ArDrone2;
-import ARDrone.Utility.ManualControl;
+import DroneSquad.Drone.ArDrone2;
 
 import java.net.UnknownHostException;
 
 /**
  * Created by dar on 1/10/16.
  */
-public class DroneTest {
+public class EndToEndTest
+{
     public static void main(String[] args) {
         //TODO: need to figure out initialization
         ArDrone2 primaryDrone = null;

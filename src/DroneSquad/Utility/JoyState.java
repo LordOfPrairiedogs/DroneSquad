@@ -1,9 +1,9 @@
-package ARDrone.Utility;
+package DroneSquad.Utility;
 
 import java.util.Map;
 
 /**
- * ARDrone.Utility
+ * DroneSquad.Utility
  */
 public class JoyState
 {

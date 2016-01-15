@@ -1,9 +1,9 @@
-package ARDrone.Utility;
+package DroneSquad.Utility;
 
 import java.net.InetAddress;
 
 /**
- * ARDrone.Utility
+ * DroneSquad.Utility
  */
 public class ATCommand
 {

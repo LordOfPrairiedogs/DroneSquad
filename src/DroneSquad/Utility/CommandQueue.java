@@ -1,15 +1,12 @@
-package ARDrone.Utility;
+package DroneSquad.Utility;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.DelayQueue;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 
 /**
- * ARDrone.Utility
+ * DroneSquad.Utility
  * The idea here is we have a master controller that directs the drone objects. It can switch their modes, clone commands,
  * get flight data, etc.
  */

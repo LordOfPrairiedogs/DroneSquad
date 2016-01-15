@@ -1,7 +1,7 @@
-package ARDrone.Utility;
+package DroneSquad.Utility;
 
 /**
- * ARDrone.Utility
+ * DroneSquad.Utility
  */
 public class DroneConstants
 {
@@ -23,7 +23,7 @@ public class DroneConstants
 //       Keep sending this command until the state of AR.Drone will show that it actually took off.
 //       Set the value to 0 to make the drone land.
 //       This command should be repeated until the drone state in the navdata shows that drone actually landed.
-//           Bit 10-17: are not used. Set to 0;
+//       Bit 10-17: are not used. Set to 0;
 //       Bit 18: not used. Set to 1;
 //       Bit 19: not used. Set to 0;
 //       Bit 20: not used. Set to 1;
