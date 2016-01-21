@@ -1,66 +1,51 @@
 package DroneSquad.Utility;
 
-import java.net.InetAddress;
+import java.util.concurrent.Delayed;
+import java.util.concurrent.TimeUnit;
 
 /**
  * DroneSquad.Utility
+ * This is the thing that gets stuffed in the queue
  */
-public class ATCommand
+public class ATCommand implements Delayed
 {
-//    public int sequence; //need to get from crontroller so next in sequence
-    private String [] args;
-    private String cmd;
-    //speed?
+    private long startTime;
+    private String atCmd;
 
-    public InetAddress getAddy ()
+    public ATCommand (String cmd, long time)
     {
-        return addy;
+        atCmd = cmd;
+        startTime = time;
+        //TODO: Queue it somehow
     }
 
-    public void setAddy (InetAddress addy)
+    @Override
+    public long getDelay (TimeUnit unit)
     {
-        this.addy = addy;
+        long diff = startTime - System.currentTimeMillis ();
+        return unit.convert (diff, TimeUnit.MILLISECONDS);
     }
 
-    public String[] getArgs ()
+    @Override
+    public int compareTo (Delayed o)
     {
-        return args;
+        if (this.startTime < ((ATCommand) o).startTime)
+        {
+            return -1;
+        }
+        if (this.startTime > ((ATCommand) o).startTime)
+        {
+            return 1;
+        }
+        return 0;
     }
 
-    public void setArgs (String[] args)
+    @Override
+    public String toString ()
     {
-        this.args = args;
-    }
-
-    public String getCmd ()
-    {
-        return cmd;
-    }
-
-    public void setCmd (String cmd)
-    {
-        this.cmd = cmd;
-    }
-
-    private InetAddress addy;
-
-    public ATCommand (){
-    }
-
-    public ATCommand (String commandName){
-        cmd = commandName;
-    }
-
-    public ATCommand (String commandName, String [] cmdArgs){
-        cmd = commandName;
-        args = cmdArgs;
-    }
-
-    public String toString (){
-        return null;
-    }
-
-    private boolean isValidMessage () {
-        return true;
+        return "{" +
+                "atCmd='" + atCmd + '\'' +
+                ", startTime=" + startTime +
+                '}';
     }
 }
